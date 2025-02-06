@@ -39,9 +39,6 @@ export function displayProjectCard(){
     })
 }  
 
-
-
-
 export function displayTaskCard(){
     const cardConatiner = document.querySelector('.cards-container')
     const taskBox = document.createElement('div');
@@ -94,8 +91,9 @@ export function displayTaskCard(){
         const taskDate = document.querySelector('#task-date').value
         const taskPriority = document.querySelector('#task-priority').value
         const taskProject = document.querySelector('#task-project').value
-        const newTask = new TaskDetails(taskTitle, taskDescription, taskDate, taskPriority, taskProject)
-        console.log(newTask)
+        const newTask = new TaskDetails(taskTitle, taskDescription, taskDate, taskPriority, taskProject);
+        projects.push(newTask)
+        console.log(projects)
     })
 }
     

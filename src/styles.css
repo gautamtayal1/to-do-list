@@ -20,7 +20,7 @@ body{
 
 main{
     display: flex;
-    height: 30vh;
+    height: 50vh;
 }
 
 .left{
@@ -123,4 +123,11 @@ main{
     width: 90%;
     height: auto;
     text-align: left;    
+}
+
+.project-description-box{
+    margin: 10px 10px 10px 10px;
+    border: 1px solid black;
+    padding: 10px;
+    
 }
