@@ -105,6 +105,7 @@ main{
     text-align: center;
     display: flex;
     flex-direction: column;
+    display: none;
 }
 
 .project-box{

@@ -1,6 +1,8 @@
 import { projects } from "./index.js";
 import { ProjectDetails } from "./constructers.js";
+import { TaskDetails } from "./constructers.js";
 import { renderProject } from "./project-manager.js";
+import { updateOptions } from "./project-manager.js";
 
 export function displayProjectCard(){
     const cardConatiner = document.querySelector('.cards-container')
@@ -30,9 +32,10 @@ export function displayProjectCard(){
         const projectTitle = document.querySelector('#project-title').value
         const projectDescription = document.querySelector('#project-description').value
         const project = new ProjectDetails(projectTitle, projectDescription);
-        projects.push(project)
+        projects.push(project);
         console.log(projects);
         renderProject()
+        updateOptions()
     })
 }  
 
@@ -58,14 +61,14 @@ export function displayTaskCard(){
             <input type="date" id="task-date"><br>
 
             <label for="task-priority">Priority</label><br>
-            <select id="options" name="options">
+            <select id="task-priority" name="options">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
             </select><br>
 
             <label for="task-project">Project</label><br>
-            <select id="project-options" name="projects">
+            <select id="task-project" name="projects">
                 <option value="Nil"> Select a project </option>
                 <option value="Sample Project"> Sample Project </option>
             </select><br>
@@ -77,6 +80,23 @@ export function displayTaskCard(){
     </div>
     `
     cardConatiner.appendChild(taskBox)
+    const taskCard = document.querySelector('.task-card')
+    const addTaskBtn = document.querySelector('.add-task-btn')
+    addTaskBtn.addEventListener('click', () => {
+        taskCard.style.display = 'block'
+    })
+
+    const submitTaskBtn = document.querySelector('#submit-task');
+    submitTaskBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const taskTitle = document.querySelector('#task-title').value
+        const taskDescription = document.querySelector('#task-description').value
+        const taskDate = document.querySelector('#task-date').value
+        const taskPriority = document.querySelector('#task-priority').value
+        const taskProject = document.querySelector('#task-project').value
+        const newTask = new TaskDetails(taskTitle, taskDescription, taskDate, taskPriority, taskProject)
+        console.log(newTask)
+    })
 }
     
     

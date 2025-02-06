@@ -7,6 +7,7 @@ import { displayTaskCard } from "./DOM.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     displayProjectCard()
+    displayTaskCard()
     displayProject()
     // openProjects()
 })

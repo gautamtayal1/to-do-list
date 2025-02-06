@@ -28,3 +28,12 @@ export function openProjectTasks(projectIndex){
     
 }
 
+export function updateOptions(){
+    for (let i = 0; i < projects.length; i++){
+        const taskProject = document.querySelector('#task-project')
+        const addOptions = document.createElement('option')
+        addOptions.textContent = projects[i].title
+        taskProject.appendChild(addOptions)
+    }
+}
+
