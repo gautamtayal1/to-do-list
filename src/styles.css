@@ -1,0 +1,125 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-header{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(255, 166, 0);
+    color: white
+}
+
+main{
+    display: flex;
+    height: 30vh;
+}
+
+.left{
+    background-color: #1E3E62;
+
+    flex: 1;
+}
+
+.right{
+    flex: 4;
+}
+
+.add-task-bar{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-task-btn{
+    height: 70%;
+    width: 20%;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.project-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 10vh;
+    background-color: #1E3E62;
+    border: none;
+    color: white;
+}
+
+.project-card{
+    height: 50vh;
+    border: 1px solid black;
+    width: 40vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.project-create, .project-cancel{
+    height: 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top:auto;
+    margin-bottom: 20px;
+}
+
+.project-title-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.project-input{
+    width: 90%;
+}
+
+.task-card{
+    height: 80vh;
+    border: 1px solid black;
+    width: 40vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-box{
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.task-card{
+    margin-left: 20px;
+    width: 90%;
+    height: auto;
+    text-align: left;    
+}
