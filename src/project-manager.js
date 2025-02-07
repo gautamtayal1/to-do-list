@@ -6,13 +6,23 @@ const taskContainer = document.querySelector('.task-container')
 export function displayProject(){
     const addProjectBtn = document.querySelector('.project-head');
     const projectCard = document.querySelector('.project-card')
+    const overlay = document.querySelector('.overlay')
     addProjectBtn.addEventListener('click', () => {
         projectCard.style.display = "block";
+        overlay.style.display = 'block';
     })
+    overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        if (projectCard) projectCard.style.display = 'none';
+    });
 }
 
 export function renderProject(){
     const projectBox = document.querySelector('.project-box')
+    
+    // Clear the existing projects to avoid duplicates
+    projectBox.innerHTML = ''
+
     for (let i = 0; i < projects.length; i++){
         const projectName = document.createElement('div')
         projectName.innerHTML = projects[i].title;
@@ -24,6 +34,7 @@ export function renderProject(){
             openProjectTasks(i)
         })
     }
+    
 }
 
 export function openProjectTasks(projectIndex){
@@ -34,19 +45,6 @@ export function openProjectTasks(projectIndex){
     <span class = "project-description">${projects[projectIndex].description}</span>
     `
     taskContainer.appendChild(projectDescriptionBox)
-
-    //projectTask assignment
-    for (let i = 0; i < projects[projectIndex].tasks.length; i++){
-        const projectTaskBox = document.createElement('div')
-        projectTaskBox.classList.add('project-task-box')
-        console.log(projects[projectIndex].tasks.title)
-        projectTaskBox.innerHTML = `
-        <h1 class="project-task">${projects[projectIndex].tasks[i].title}</h1>
-        <span class = "project-description">${projects[projectIndex].tasks[i].description}</span><br>
-        <span class = "project-date">${projects[projectIndex].tasks[i].date}</span>
-        `
-        taskContainer.appendChild(projectTaskBox)
-    }
     
 }
 
