@@ -91,9 +91,16 @@ export function displayTaskCard(){
         const taskDate = document.querySelector('#task-date').value
         const taskPriority = document.querySelector('#task-priority').value
         const taskProject = document.querySelector('#task-project').value
+
         const newTask = new TaskDetails(taskTitle, taskDescription, taskDate, taskPriority, taskProject);
-        projects.push(newTask)
-        console.log(projects)
+
+        // Find the project that matches the selected project name
+        const selectedProject = projects.find(project => project.title === taskProject);
+
+        if (selectedProject) {
+            selectedProject.addTask(newTask);
+            console.log(projects);
+        }
     })
 }
     

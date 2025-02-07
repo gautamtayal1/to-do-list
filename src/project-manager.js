@@ -36,15 +36,18 @@ export function openProjectTasks(projectIndex){
     taskContainer.appendChild(projectDescriptionBox)
 
     //projectTask assignment
-
-    // const projectTaskBox = document.createElement('div')
-    // projectTaskBox.classList.add('project-task-box')
-    // projectTaskBox.innerHTML = `
-    // <h1 class="project-task">${projects[projectIndex].tasks.title}</h1>
-    // <span class = "project-description">${projects[projectIndex].tasks.description}</span>
-    // <span class = "project-date">${projects[projectIndex].tasks.date}</span>
-    // `
-    // taskContainer.appendChild(projectTaskBox)
+    for (let i = 0; i < projects[projectIndex].tasks.length; i++){
+        const projectTaskBox = document.createElement('div')
+        projectTaskBox.classList.add('project-task-box')
+        console.log(projects[projectIndex].tasks.title)
+        projectTaskBox.innerHTML = `
+        <h1 class="project-task">${projects[projectIndex].tasks[i].title}</h1>
+        <span class = "project-description">${projects[projectIndex].tasks[i].description}</span><br>
+        <span class = "project-date">${projects[projectIndex].tasks[i].date}</span>
+        `
+        taskContainer.appendChild(projectTaskBox)
+    }
+    
 }
 
 export function updateOptions(){
