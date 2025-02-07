@@ -109,7 +109,6 @@ export function displayTaskCard(){
             <label for="task-project">Project</label>
             <select id="task-project" name="projects">
                 <option value="Nil"> Select a project </option>
-                <option value="Sample Project"> Sample Project </option>
             </select><br>
 
             <button type="submit" id="submit-task">Submit</button>
@@ -151,21 +150,14 @@ export function displayTaskCard(){
         if (selectedProject) {
             selectedProject.addTask(newTask);
             console.log(projects);
+        } else {
+            // Add to "Sample Project" if no project is selected
+            const sampleProject = projects.find(project => project.title === "Sample Project");
+            sampleProject.addTask(newTask);
         }
 
-        const taskContainer = document.querySelector('.task-container');
-        const projectTaskBox = document.createElement('div')
-        projectTaskBox.classList.add('project-task-box')
-        // projectTaskBox.style.display = 'none'
-
-        projectTaskBox.innerHTML = `
-        <h2 class="project-task">${newTask.title}</h2>
-        <span class = "project-description">${newTask.description}</span><br>
-        <span class = "project-date">${newTask.date}</span>
-        `
-
-        taskContainer.appendChild(projectTaskBox)
-    })
+        // No need to append task to taskContainer here, as tasks are displayed when a project is clicked
+    });
 }
     
     

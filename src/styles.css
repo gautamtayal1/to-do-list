@@ -59,6 +59,10 @@ main{
     color: white;
 }
 
+.project-head:hover{
+    background-color: #002b5d;
+}
+
 .project-card{
     height: 50vh;
     border: 1px solid black;

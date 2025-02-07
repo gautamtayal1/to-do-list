@@ -22,7 +22,7 @@ export function renderProject(){
     
     // Clear the existing projects to avoid duplicates
     projectBox.innerHTML = ''
-
+    
     for (let i = 0; i < projects.length; i++){
         const projectName = document.createElement('div')
         projectName.innerHTML = projects[i].title;
@@ -38,14 +38,25 @@ export function renderProject(){
 }
 
 export function openProjectTasks(projectIndex){
-    const projectDescriptionBox = document.createElement('div')
-    projectDescriptionBox.classList.add('project-description-box')
+    const projectDescriptionBox = document.createElement('div');
+    projectDescriptionBox.classList.add('project-description-box');
     projectDescriptionBox.innerHTML = `
     <h1 class="project-title">${projects[projectIndex].title}</h1>
-    <span class = "project-description">${projects[projectIndex].description}</span>
-    `
-    taskContainer.appendChild(projectDescriptionBox)
-    
+    <span class="project-description">${projects[projectIndex].description}</span>
+    `;
+    taskContainer.appendChild(projectDescriptionBox);
+
+    // Create a task box for each task in the project
+    projects[projectIndex].tasks.forEach(task => {
+        const taskBox = document.createElement('div');
+        taskBox.classList.add('project-task-box');
+        taskBox.innerHTML = `
+        <h2 class="task-title">${task.title}</h2>
+        <p class="task-description">${task.description}</p>
+        <p class="task-date">Due: ${task.date}</p>
+        `;
+        taskContainer.appendChild(taskBox);
+    });
 }
 
 export function updateOptions(){

@@ -7,7 +7,6 @@ export function TaskDetails(title, description, date, priority, project){
 }
 
 export class ProjectDetails{
-
     constructor(title, description){
         this.title = title;
         this.description = description;
